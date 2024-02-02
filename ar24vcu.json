@@ -1,0 +1,36 @@
+{
+  "build": {
+    "core": "stm32",
+    "cpu": "cortex-m4",
+    "arduino": {
+      "variant_h": "variant_generic.h"
+    },
+    "extra_flags": "-DSTM32G4xx -DSTM32G473xx -DGENERIC_G473CBTX",
+    "f_cpu": "170000000L",
+    "mcu": "stm32g473cbt6",
+    "product_line": "STM32G473xx",
+    "variant": "STM32G4xx/G473C(B-C-E)T_G474C(B-C-E)T_G483CET_G484CET"
+  },
+  "connectivity": [
+    "can"
+  ],
+  "debug": {
+    "jlink_device": "STM32G473CB",
+    "openocd_target": "stm32g4x",
+    "svd_path": "STM32G473xx.svd"
+  },
+  "frameworks": [
+    "arduino"
+  ],
+  "name": "AR24 VCU v1.0 (128k RAM. 128k Flash)",
+  "upload": {
+    "maximum_ram_size": 131072,
+    "maximum_size": 131072,
+    "protocol": "stlink",
+    "protocols": [
+      "stlink"
+    ]
+  },
+  "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32g473cb.html",
+  "vendor": "ST"
+}
