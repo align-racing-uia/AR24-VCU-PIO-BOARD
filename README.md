@@ -21,8 +21,16 @@ board_build.variant = AR24VCU
 ## Caveats, tips and tricks
 A big caveat of the current hardware, is the lack of serial pins. The only pins currently broken out, is SWDIO/SWCLK, so a J-LINK, Black Magic Probe, or a STLINK is needed to program the chip.
 As the current AR24 VCU dosent come with a USB port (or any form of serial pins whatsoever), we need some other way to be able to debug the program. One good way is to use a Arduino Library called `RTT Stream`. To read the output of this library, you will also need a program to view an RTT stream through a debugger. Some alternatives are:
-1. A project named `strtt` whcih can be found here on github.
-2. A project named `probe-rs` that is also able to connect to a RTT stream.
+1. A project named `probe-rs` that is able to upload and connect to a RTT stream.
+2. A project named `strtt` which can be found here on github.
 
-## TODO:
-Add either STRTT or probe-rs debugging as a default command when clicking `Upload and monitor`
+
+To use `probe-rs` the following tutorial tells you how to install it:
+https://probe.rs/docs/getting-started/installation/
+
+After this, you can put the following lines at the bottom of your `platformio.ini` file, to get logging straight into the console using `RTT Stream`.
+```
+upload_protocol = custom
+upload_command = probe-rs run --chip STM32G473CETx $BUILD_DIR/${PROGNAME}.elf
+lib_deps = koendv/RTT Stream@^1.4.1
+```
